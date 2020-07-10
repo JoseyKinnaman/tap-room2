@@ -1,4 +1,5 @@
 import kombuchaListReducer from '../../reducers/kombucha-list-reducer';
+import * as c from '../../actions/ActionTypes'
 
 describe ('kombuchaListReducer', () => {
 
@@ -38,7 +39,7 @@ describe ('kombuchaListReducer', () => {
   test('Should successfully add a new kombucha info to masterKombuchaList', () => {
     const { name, brand, price, alcoholContent,flavor, pints, id} = kombuchaInfo;
     action = {
-      type: 'ADD_KOMBUCHA',
+      type: c.ADD_KOMBUCHA,
       name: name,
       brand: brand,
       price: price,
@@ -61,7 +62,7 @@ describe ('kombuchaListReducer', () => {
   });
   test ('Should succesfully delete a kombucha', ()=>{
     action = {
-      type: 'DELETE_KOMBUCHA',
+      type: c.DELETE_KOMBUCHA,
       id: 1
     }
     expect(kombuchaListReducer(currentState, action)).toEqual({

@@ -1,16 +1,18 @@
+import * as c from './../actions/ActionTypes'
+
 export const deleteKombucha = id => ({
-  type: 'DELETE_KOMBUCHA',
+  type: c.DELETE_KOMBUCHA,
   id
 });
 
 export const toggleForm = () => ({
-  type: 'TOGGLE_FORM'
+  type: c.TOGGLE_FORM
 });
 
 export const addKombucha = (kombucha) => {
   const { id, name, brand, price, alcoholContent, flavor, pints } = kombucha
   return {
-    type: 'ADD_KOMBUCHA',
+    type: c.ADD_KOMBUCHA,
     name: name,
     brand: brand,
     price: price,
