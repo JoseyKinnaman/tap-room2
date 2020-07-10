@@ -1,4 +1,5 @@
 import selectedKombuchaReducer from '../../reducers/selected-kombucha-reducer';
+import * as c from './../../actions/ActionTypes';
 
 
 describe("selectedKombuchaReducer", ()=>{
@@ -17,7 +18,6 @@ describe("selectedKombuchaReducer", ()=>{
       pints: "124",
       id: 1
      }
-     store.dispatch(action);
      expect(selectedKombuchaReducer(null, action)).toEqual({
        name: "Purple Rain",
        brand: "Electric",
