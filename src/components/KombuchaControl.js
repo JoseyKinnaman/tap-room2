@@ -46,6 +46,26 @@ class KombuchaControl extends React.Component {
     this.setState({formVisibleOnPage:false});
   }
 
+  handleEditingKombuchaInList = (kombuchaToEdit) => {
+    const { dispatch } = this.props;
+    const { id, name, brand, price, alcoholContent, flavor, pints } = kombuchaToEdit;
+    const action = {
+      type: 'ADD_KOMBUCHA',
+      name: name,
+      brand: brand,
+      price: price,
+      alcoholContent: alcoholContent,
+      flavor: flavor,
+      pints: pints,
+      id: id,
+    }
+    dispatch(action);
+    this.setState({
+      editing: false,
+      selectedKombucha: null
+    });
+  }
+
   handleChangingSelectedKombucha = (id) => {
     const selectedKombucha = this.state.masterKombuchaList.filter((kombucha) => kombucha.id === id)[0];
     this.setState({ selectedKombucha: selectedKombucha});
