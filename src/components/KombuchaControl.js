@@ -66,6 +66,16 @@ class KombuchaControl extends React.Component {
     });
   }
 
+  handleDeletingKombucha = (id) => {
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_KOMBUCHA',
+      id: id
+    }
+    dispatch(action);
+    this.setState({ selectedKombucha: null });
+  }
+
   handleChangingSelectedKombucha = (id) => {
     const selectedKombucha = this.state.masterKombuchaList.filter((kombucha) => kombucha.id === id)[0];
     this.setState({ selectedKombucha: selectedKombucha});
