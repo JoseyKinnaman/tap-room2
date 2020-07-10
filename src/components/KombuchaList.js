@@ -14,7 +14,7 @@ function KombuchaList(props){
     <React.Fragment>
       <div style={kombuchaListStyles}>
         <h2>Current Tap List:</h2>
-        {props.kombuchaList.map((kombucha) => <Kombucha 
+        {Object.values(props.kombuchaList).map((kombucha) => <Kombucha 
             whenKombuchaClicked = {props.onKombuchaSelection}
             whenKombuchaPurchased={props.onClickingBuy}
             name={kombucha.name}
@@ -33,7 +33,7 @@ function KombuchaList(props){
 }
 
 KombuchaList.propTypes = {
-  kombuchaList: PropTypes.array,
+  kombuchaList: PropTypes.object,
   onKombuchaSelection: PropTypes.func,
   onClickingBuy: PropTypes.func
 };

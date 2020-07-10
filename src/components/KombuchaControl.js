@@ -78,7 +78,7 @@ class KombuchaControl extends React.Component {
   }
 
   handleChangingSelectedKombucha = (id) => {
-    const selectedKombucha = this.state.masterKombuchaList.filter((kombucha) => kombucha.id === id)[0];
+    const selectedKombucha = this.state.props.masterKombuchaList[id];
     this.setState({ selectedKombucha: selectedKombucha});
   }
 
@@ -111,7 +111,7 @@ class KombuchaControl extends React.Component {
       );
       buttonText = "Return to Tap List"
     } else {
-      currentlyVisibleState = (<KombuchaList kombuchaList={this.state.masterKombuchaList} 
+      currentlyVisibleState = (<KombuchaList kombuchaList={this.props.masterKombuchaList} 
       onKombuchaSelection={this.handleChangingSelectedKombucha}
       onClickingBuy={this.handleBuyAPint}
       />
