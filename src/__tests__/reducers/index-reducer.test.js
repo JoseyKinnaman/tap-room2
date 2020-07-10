@@ -1,7 +1,7 @@
 import rootReducer from '../../reducers/index';
 import { createStore } from 'redux';
 import formVisibleReducer from '../../reducers/form-visible-reducer';
-import ticketListReducer from '../../reducers/kombucha-list-reducer'
+import kombuchaListReducer from '../../reducers/kombucha-list-reducer'
  
  let store = createStore(rootReducer);
 
@@ -14,10 +14,25 @@ describe("rootReducer", () => {
     });
   });
   test('Check that initial state of kombuchaListReducer matches root reducer', () => {
-    expect(store.getState().masterKombuchaList).toEqual(kombuchaListReducer(undefined, { type: null }));
+    const action = {
+      type: 'ADD_KOMBUCHA',
+      name: "Purple Rain",
+      brand: "Electric",
+      price: 56,
+      alcoholContent: 5.9,
+      flavor: "Grape",
+      pints: "124",
+      id: 1
+    }
+    store.dispatch(action);
+    expect(store.getState().masterKombuchaList).toEqual(kombuchaListReducer(undefined, action));
   });
 
   test('Check that initial state of formVisibleReducer matches root reducer', () => {
-    expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type: null }));
+    const action = {
+      type: 'TOGGLE_FORM'
+    }
+    store.dispatch(action);
+    expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
   });
 });
