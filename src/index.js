@@ -4,9 +4,9 @@ import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
-import reducer from './reducers/kombucha-list-reducer';
 import { Provider } from 'react-redux';
-const store = createStore(reducer);
+import rootReducer from './reducers/index'
+const store = createStore(rootReducer);
 
 store.subscribe(() =>
   console.log(store.getState())
