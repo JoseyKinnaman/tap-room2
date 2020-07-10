@@ -2,15 +2,17 @@ import React from 'react';
 import NewKombuchaForm from './NewKombuchaForm';
 import KombuchaList from './KombuchaList';
 import KombuchaDetail from './KombuchaDetail';
+import { connect } from 'react-redux';
 
 class KombuchaControl extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKombuchaList: [],
-      selectedKombucha: null
+      selectedKombucha: null,
+      editing: false
     };
   }
 
@@ -28,10 +30,20 @@ class KombuchaControl extends React.Component {
   };
 
   handleAddingNewKombuchaToList = (newKombucha) =>{
-    const newMasterKombuchaList = this.state.masterKombuchaList.concat(newKombucha)
-    this.setState({
-      masterKombuchaList: newMasterKombuchaList,
-      formVisibleOnPage: false });
+    const { dispatch } = this.props;
+    const { id, name, brand, price, alcoholContent, flavor, pints} = newKombucha
+    const action = {
+      type: 'ADD_KOMBUCHA',
+      name: name,
+      brand: brand,
+      price: price,
+      alcoholContent: alcoholContent,
+      flavor: flavor,
+      pints: pints,
+      id: id,
+    }
+    dispatch(action);
+    this.setState({formVisibleOnPage:false});
   }
 
   handleChangingSelectedKombucha = (id) => {
@@ -83,5 +95,7 @@ class KombuchaControl extends React.Component {
     );
   }
 }
+
+KombuchaControl = connect()(KombuchaControl);
 
 export default KombuchaControl;
