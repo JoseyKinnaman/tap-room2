@@ -3,6 +3,7 @@ import NewKombuchaForm from './NewKombuchaForm';
 import KombuchaList from './KombuchaList';
 import KombuchaDetail from './KombuchaDetail';
 import { connect } from 'react-redux';
+import PropTypes  from "prop-types";
 
 class KombuchaControl extends React.Component {
 
@@ -126,6 +127,15 @@ class KombuchaControl extends React.Component {
   }
 }
 
-KombuchaControl = connect()(KombuchaControl);
+KombuchaControl.propTypes = {
+  masterKombuchaList: PropTypes.object
+};
+
+const mapStateToProps =  state => {
+  return {
+    masterKombuchaList: state
+  }
+}
+KombuchaControl = connect(mapStateToProps)(KombuchaControl);
 
 export default KombuchaControl;
