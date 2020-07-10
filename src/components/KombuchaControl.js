@@ -1,5 +1,6 @@
 import React from 'react';
 import NewKombuchaForm from './NewKombuchaForm';
+import EditKombuchaForm from './EditKombuchaForm';
 import KombuchaList from './KombuchaList';
 import KombuchaDetail from './KombuchaDetail';
 import { connect } from 'react-redux';
@@ -48,6 +49,10 @@ class KombuchaControl extends React.Component {
     });
   }
 
+  handleEditClick = () => {
+    this.setState({ editing: true });
+  }
+
   handleDeletingKombucha = (id) => {
     const { dispatch } = this.props;
     const action = a.deleteKombucha(id)
@@ -81,8 +86,14 @@ class KombuchaControl extends React.Component {
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.selectedKombucha != null) {
+    if (this.state.editing){
+      currentlyVisibleState = <EditKombuchaForm kombucha={this.state.selectedKombucha} onEditKombucha={this.handleEditKombuchaInList} />
+      buttonText = "Return to Tap List"
+    }
+    else if (this.state.selectedKombucha != null) {
       currentlyVisibleState = (<KombuchaDetail kombucha = {this.state.selectedKombucha} 
+                              onClickDelete={this.handleDeletingKombucha}
+                              onClickEdit={this.handleEditClick}
       />
       );
       buttonText = "Return to Tap List";
@@ -109,7 +120,8 @@ class KombuchaControl extends React.Component {
 }
 
 KombuchaControl.propTypes = {
-  masterKombuchaList: PropTypes.object
+  masterKombuchaList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool
 };
 
 const mapStateToProps =  state => {

@@ -33,11 +33,9 @@ Kombucha.propTypes = {
   price: PropTypes.number.isRequired,
   alcoholContent: PropTypes.number.isRequired,
   flavor: PropTypes.string.isRequired,
-  pints: PropTypes.string.isRequired,
+  pints: PropTypes.number,
   whenKombuchaClicked: PropTypes.func,
   whenKombuchaPurchased: PropTypes.func,
 };
-console.log(Kombucha.propTypes)
 
-//124 pints in a keg
 export default Kombucha;

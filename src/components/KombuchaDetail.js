@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect } from 'react-redux'
 
 function KombuchaDetail(props) {
   const kombuchaDetailStyles = {
@@ -21,8 +22,14 @@ function KombuchaDetail(props) {
         <h5>Flavor: {kombucha.flavor}</h5>
         <p>$ {kombucha.price}</p>
         <p>ACV: {kombucha.alcoholContent}%</p>
-        {/* <div className="pints">
+        <div className="pints">
           <p>Pints remaning/keg: <b>{kombucha.pints}</b></p>
+        </div>
+        {/* <div class="form-group">
+          <button onClick={() => onClickDelete(kombucha.id)} class="btn btn-danger">Delete Keg</button>
+        </div>
+        <div class="form-group">
+          <button onClick={onClickEdit} class="btn btn-success">Update Keg Details</button>
         </div> */}
       </div>
     </React.Fragment>
@@ -30,7 +37,17 @@ function KombuchaDetail(props) {
 }
 
 KombuchaDetail.propTypes = {
-  kombucha: PropTypes.object
+  kombucha: PropTypes.object,
+  onClickDelete: PropTypes.func,
+  onClickEdit: PropTypes.func
 };
+
+const mapStateToProps = state => {
+  return {
+    masterKombuchaList: state.masterKombuchaList
+  }
+}
+
+KombuchaDetail = connect(mapStateToProps)(KombuchaDetail);
 
 export default KombuchaDetail;

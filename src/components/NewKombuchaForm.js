@@ -1,6 +1,7 @@
 import React from "react";
 import {v4} from 'uuid';
 import PropTypes from "prop-types";
+import ReusableForm  from './ReusuableForm'
 
 function NewKombuchaForm(props) {
   const NewKombuchaFormStyles = {
@@ -14,62 +15,15 @@ function NewKombuchaForm(props) {
 
   function handleNewKombuchaFormSubmission(event) {
     event.preventDefault();
-    props.onNewKombuchaCreation({ name: event.target.name.value, brand: event.target.brand.value, price: event.target.price.value, alcoholContent: event.target.alcoholContent.value, flavor: event.target.flavor.value, pints: event.target.pints.value, id: v4() });
+    props.onNewKombuchaCreation({ name: event.target.name.value, brand: event.target.brand.value, price: event.target.price.value, alcoholContent: event.target.alcoholContent.value, flavor: event.target.flavor.value, pints: 124, id: v4() });
   }
   return (
     <React.Fragment>
       <div style= {NewKombuchaFormStyles}>
         <h3>Add a New Keg To Stock:</h3>
-        <form onSubmit={handleNewKombuchaFormSubmission} >
-          <div class="form-group">
-            <input 
-              type="text"
-              name='name'
-              placeholder='Kombucha name'
-              required/>
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                name='brand'
-                placeholder='Brand'
-                required />
-            </div>
-            <div class="form-group">
-              <input
-                type="number"
-                name='price'
-                placeholder='Price per keg'
-                required />
-            </div>
-            <div class="form-group">
-              <input
-                type="number"
-                name='alcoholContent'
-                placeholder='Alcohol Content'
-                required />
-              </div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  name='flavor'
-                  placeholder='Kombucha flavor'
-                  required />
-              </div>
-              <div class="form-group">
-                <label for="staticPint">Pints: </label>
-                <br/>
-                <input 
-                  type="text" 
-                  readonly 
-                  id="staticPint" 
-                  name="pints" 
-                  value="124"/>
-              </div>
-              <div class="form-group">
-                <button class="btn btn-dark" type='submit'>Add to Stock</button>
-              </div>
-        </form>
+        <ReusableForm
+        formSubmissionHandler={handleNewKombuchaFormSubmission}
+        />
       </div>
     </React.Fragment>
   );
