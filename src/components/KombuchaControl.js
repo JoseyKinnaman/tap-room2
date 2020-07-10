@@ -50,13 +50,16 @@ class KombuchaControl extends React.Component {
 
   handleDeletingKombucha = (id) => {
     const { dispatch } = this.props;
-    const action = a.deleteKombucha(id);
+    const action = a.deleteKombucha(id)
     dispatch(action);
     this.setState({ selectedKombucha: null });
   }
 
   handleChangingSelectedKombucha = (id) => {
-    const selectedKombucha = this.state.props.masterKombuchaList[id];
+    const { dispatch } = this.props;
+    const action = a.selectKombucha(id)
+    const selectedKombucha = this.props.masterKombuchaList[id];
+    dispatch(action);
     this.setState({ selectedKombucha: selectedKombucha});
   }
 

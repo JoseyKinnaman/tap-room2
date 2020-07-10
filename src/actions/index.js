@@ -23,18 +23,19 @@ export const addKombucha = (kombucha) => {
   }
 }
 
-export const selectKombucha = (selectedKombucha) => {
-  if (selectedKombucha != null ){
-  const { id, name, brand, price, alcoholContent, flavor, pints } = selectedKombucha;
+export const selectKombucha = (id) => {
+  if (id != null ){
+  // const { id, name, brand, price, alcoholContent, flavor, pints } = kombucha;
   return{
   type: c.SELECT_KOMBUCHA,
-  name: name,
-  brand: brand,
-  price: price,
-  alcoholContent: alcoholContent,
-  flavor: flavor,
-  pints: pints,
-  id: id,
+  id
+  // name: name,
+  // brand: brand,
+  // price: price,
+  // alcoholContent: alcoholContent,
+  // flavor: flavor,
+  // pints: pints,
+  // id: id,
   }
 } else{
   return {
