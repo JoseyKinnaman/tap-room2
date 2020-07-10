@@ -11,4 +11,17 @@ describe('tap room actions', () => {
       type: 'TOGGLE_FORM'
     });
   });
+  it('addKombucha should create ADD_KOMBUCHA action', () => {
+    expect(actions.addKombucha({ name: "Purple Rain", brand: "Electric", price: 56, alcoholContent: 5.9, flavor: "Grape", pints: "124", id: 1 })).toEqual({
+      type: 'ADD_KOMBUCHA',
+      name: "Purple Rain",
+      brand: "Electric",
+      price: 56,
+      alcoholContent: 5.9,
+      flavor: "Grape",
+      pints: "124",
+      id: 1
+    });
+  });
+
 });
