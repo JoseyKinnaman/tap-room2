@@ -33,7 +33,7 @@ Kombucha.propTypes = {
   price: PropTypes.number.isRequired,
   alcoholContent: PropTypes.number.isRequired,
   flavor: PropTypes.string.isRequired,
-  pints: PropTypes.number.isRequired,
+  pints: PropTypes.string.isRequired,
   whenKombuchaClicked: PropTypes.func,
   whenKombuchaPurchased: PropTypes.func,
 };
