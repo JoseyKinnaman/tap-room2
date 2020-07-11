@@ -28,10 +28,10 @@ function KombuchaDetail(props) {
         </div>
         <button class="btn btn-dark" onClick={() => props.onClickBuy(kombucha)}>Buy</button>
         <div class="form-group">
-          {/* <button onClick={() => onClickDelete(kombucha.id)} class="btn btn-danger">Delete Keg</button>
+          <button onClick={() => props.onClickDelete(kombucha.id)} class="btn btn-danger">Delete Keg</button>
         </div>
         <div class="form-group">
-          <button onClick={onClickEdit} class="btn btn-success">Update Keg Details</button> */}
+          <button onClick={props.onClickEdit} class="btn btn-success">Update Keg Details</button>
         </div>
       </div>
     </React.Fragment>
