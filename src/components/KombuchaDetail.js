@@ -11,7 +11,8 @@ function KombuchaDetail(props) {
     margin: "20px",
     padding: "5px"
   }
-  const {kombucha} = props;
+  const { kombucha, onClickDelete, onClickEdit, onClickBuy, masterKombuchaList} = props;
+  const pints = masterKombuchaList[kombucha.id].pints;
   return (
     <React.Fragment>
       <div style={kombuchaDetailStyles}>
@@ -23,7 +24,7 @@ function KombuchaDetail(props) {
         <p>$ {kombucha.price}</p>
         <p>ACV: {kombucha.alcoholContent}%</p>
         <div className="pints">
-          <p>Pints remaning/keg: <b>{kombucha.pints}</b></p>
+          <p>Pints remaning/keg: <b>{pints}</b></p>
         </div>
         <button class="btn btn-dark" onClick={() => props.onClickBuy(kombucha)}>Buy</button>
         <div class="form-group">
