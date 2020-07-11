@@ -25,6 +25,7 @@ function KombuchaDetail(props) {
         <div className="pints">
           <p>Pints remaning/keg: <b>{kombucha.pints}</b></p>
         </div>
+        <button class="btn btn-dark" onClick={() => props.onClickBuy(props.id)}>Buy</button>
         {/* <div class="form-group">
           <button onClick={() => onClickDelete(kombucha.id)} class="btn btn-danger">Delete Keg</button>
         </div>
@@ -39,7 +40,8 @@ function KombuchaDetail(props) {
 KombuchaDetail.propTypes = {
   kombucha: PropTypes.object,
   onClickDelete: PropTypes.func,
-  onClickEdit: PropTypes.func
+  onClickEdit: PropTypes.func,
+  onClickBuy: PropTypes.func,
 };
 
 const mapStateToProps = state => {

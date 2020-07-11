@@ -68,34 +68,27 @@ class KombuchaControl extends React.Component {
     this.setState({ selectedKombucha: selectedKombucha});
   }
 
-  // handleBuyAPint = (id) => {
-  //   const newSelectedKombucha = this.state.masterKombuchaList.filter((kombucha) => kombucha.id === id)[0];
-  //   if (newSelectedKombucha.pints === 0){
-  //    alert("The tap hath run dry.")
-  // } else {
-  //   const newPints = newSelectedKombucha.pints -1;
-  //   const newKombuchaPint = {...newSelectedKombucha, pints: newPints};
-  //   const oldKombuchaList = this.state.masterKombuchaList.filter((kombucha) => kombucha.id !== id);
-  //   this.setState({
-  //     masterKombuchaList: [...oldKombuchaList, newKombuchaPint],
-  //     selectedKombucha: newKombuchaPint,
-  //     });
-  //   }
-  // }
+  handleBuyAPint = (kombuchaToBuy) => {
+    console.log(kombuchaToBuy)
+    const { dispatch } = this.props;
+    const action = a.buyPint(kombuchaToBuy);
+    dispatch(action);
+  }
 
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.editing){
-      currentlyVisibleState = <EditKombuchaForm kombucha={this.state.selectedKombucha} onEditKombucha={this.handleEditKombuchaInList} />
+      currentlyVisibleState = <EditKombuchaForm kombucha={this.state.selectedKombucha} onEditKombucha = {this.handleEditingKombuchaInList} />
       buttonText = "Return to Tap List"
     }
     else if (this.state.selectedKombucha != null) {
-      currentlyVisibleState = (<KombuchaDetail kombucha = {this.state.selectedKombucha} 
-                              onClickDelete={this.handleDeletingKombucha}
-                              onClickEdit={this.handleEditClick}
+      currentlyVisibleState = <KombuchaDetail 
+      kombucha = {this.state.selectedKombucha} 
+      onClickDelete = {this.handleDeletingKombucha}
+      onClickEdit = {this.handleEditClick}
+      onClickBuy = {this.handleBuyAPint} 
       />
-      );
       buttonText = "Return to Tap List";
     }
     else if (this.props.formVisibleOnPage){
@@ -105,7 +98,6 @@ class KombuchaControl extends React.Component {
     } else {
       currentlyVisibleState = (<KombuchaList kombuchaList={this.props.masterKombuchaList} 
       onKombuchaSelection={this.handleChangingSelectedKombucha}
-      onClickingBuy={this.handleBuyAPint}
       />
       );
       buttonText =  "Add Keg"
@@ -121,13 +113,15 @@ class KombuchaControl extends React.Component {
 
 KombuchaControl.propTypes = {
   masterKombuchaList: PropTypes.object,
-  formVisibleOnPage: PropTypes.bool
+  formVisibleOnPage: PropTypes.bool,
+  selectedKombucha: PropTypes.object,
 };
 
 const mapStateToProps =  state => {
   return {
     masterKombuchaList: state.masterKombuchaList,
-    formVisibleOnPage: state.formVisibleOnPage
+    formVisibleOnPage: state.formVisibleOnPage,
+    selectedKombucha: state.selectKombucha
   }
 }
 KombuchaControl = connect(mapStateToProps)(KombuchaControl);
