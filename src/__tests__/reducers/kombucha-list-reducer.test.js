@@ -36,6 +36,7 @@ describe ('kombuchaListReducer', () => {
   test('Should return default state if there is no action type passed into the reducer', () => {
     expect(kombuchaListReducer({}, {type: null})).toEqual({});
   });
+
   test('Should successfully add a new kombucha info to masterKombuchaList', () => {
     const { name, brand, price, alcoholContent,flavor, pints, id} = kombuchaInfo;
     action = {
@@ -60,6 +61,7 @@ describe ('kombuchaListReducer', () => {
       }
     });
   });
+
   test ('Should succesfully delete a kombucha', ()=>{
     action = {
       type: c.DELETE_KOMBUCHA,
@@ -72,9 +74,27 @@ describe ('kombuchaListReducer', () => {
         price: 59,
         alcoholContent: 6,
         flavor: "Blood Orange",
-        pints: "124",
+        pints: 124,
         id: 2
       }
     });
   });
+  
+  test('Should let the user succesfully buy a pint', () => {
+    action ={
+      type: c.BUY_PINT,
+      id:1
+    }
+    expect(kombuchaListReducer(currentState, action)).toEqual({
+      1: {
+        name: "Purple Rain",
+        brand: "Electric",
+        price: 56,
+        alcoholContent: 5.9,
+        flavor: "Grape",
+        pints: 123,
+        id: 1
+      }
+    })
+  })
 });
