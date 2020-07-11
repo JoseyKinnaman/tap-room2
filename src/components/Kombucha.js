@@ -20,7 +20,7 @@ function Kombucha(props){
           <p>Pints remaning/keg: <b>{props.pints}</b></p>
         </div>
         <div class="form-group">
-          <button class="btn btn-info" onClick={() => props.whenKombuchaClicked(props.id)}> View Post</button>
+          <button class="btn btn-info" onClick={() => props.whenKombuchaClicked(props.id)}> View Details</button>
         </div>
       </div>
     </React.Fragment>

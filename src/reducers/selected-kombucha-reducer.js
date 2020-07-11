@@ -14,7 +14,7 @@ export default (state = null, action) => {
           pints: pints,
           id: id,
         }
-      }else {
+      } else {
         state = null;
         return state;
     }

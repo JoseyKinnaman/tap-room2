@@ -25,21 +25,27 @@ export const addKombucha = (kombucha) => {
 
 export const selectKombucha = (id) => {
   if (id != null ){
-  // const { id, name, brand, price, alcoholContent, flavor, pints } = kombucha;
   return{
   type: c.SELECT_KOMBUCHA,
   id
-  // name: name,
-  // brand: brand,
-  // price: price,
-  // alcoholContent: alcoholContent,
-  // flavor: flavor,
-  // pints: pints,
-  // id: id,
   }
 } else{
   return {
     type: c.SELECT_KOMBUCHA
     }
+  }
+}
+
+export const buyPint = (kombuchaToBuy) => {
+  const { id, name, brand, price, alcoholContent, flavor, pints } = kombuchaToBuy;
+  return {
+    type: c.BUY_PINT,
+    name: name,
+    brand: brand,
+    price: price,
+    alcoholContent: alcoholContent,
+    flavor: flavor,
+    pints: pints,
+    id: id,
   }
 }

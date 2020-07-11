@@ -11,7 +11,7 @@ function KombuchaDetail(props) {
     margin: "20px",
     padding: "5px"
   }
-  const { kombucha, onClickDelete, onClickEdit, onClickBuy, masterKombuchaList} = props;
+  const { kombucha, masterKombuchaList} = props;
   const pints = masterKombuchaList[kombucha.id].pints;
   return (
     <React.Fragment>
