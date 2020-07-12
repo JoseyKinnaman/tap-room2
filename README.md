@@ -1,11 +1,11 @@
-# **Tap Room**
+# **Tap Room 2.0**
 
 #### Author: **Jozy Kinnaman**
-#### July 3rd, 2020
+#### July 10, 2020
 
 ### Description
 
-_A Friday Project for Epicodus that serves as an introduction to React with create-react-app, components, JSX, and props while building a dynamic site. This tap room displays a list of kombucha on tap and lets a user add new kegs or buy pints._
+_A Friday Project for Epicodus that serves as an introduction to React/Redux with create-react-app, components, JSX, and props while building a dynamic site. This tap room displays a list of kombucha on tap and lets a user select a keg, add new kegs, update kegs, delete kegs, or buy pints._
 
 ![Wireframe](src/img/tap-room.jpg)
 
@@ -35,7 +35,7 @@ npm run start
 
 ### Known Bugs
 
-Site does not have full crud.
+None at this time. 
 
 ### Support and Contact Information
 
@@ -44,6 +44,8 @@ Please contact jozypants@gmail.com with questions.
 ### Technologies Used
 
 * React
+* Redux
+* Jest 
 * JavaScript
 * JSX
 * HTML
@@ -55,8 +57,10 @@ Please contact jozypants@gmail.com with questions.
 | **User can view a static header** | User Input:"localhost:3000" | Output: “Header is displayed" |
 | **User can view a list of kombucha on tap** | User Input:"localhost:3000" | Output: “Kombucha list is displayed" |
 | **User can view details about each kombucha** | User Input:"localhost:3000" | Output: "Kombucha is displayed" |
-| **User can add a kombucha to the list** | User Input:"localhost:3000" | Output: "Kombucha is added" |
-| **User can buy a kombucha** | User Input:"localhost:3000" | Output: "Kombucha is decremented" |
+| **User can add a kombucha to the list** | User Input:"localhost:3000' "Submit " form | Output: "Kombucha is added" |
+| **User can update a kombucha on the list** | User Input:"localhost:3000" "Submit" update | Output: "Kombucha is updated" |
+| **User can buy a kombucha pint** | User Input:"localhost:3000" | Output: "Kombucha is decremented" |
+| **User can delete a kombucha from the list** | User Input:"localhost:3000" "Delete" | Output: "Kombucha is deleted" |
 
 #### License
 
