@@ -30,8 +30,8 @@ function Kombucha(props){
 Kombucha.propTypes = {
   name: PropTypes.string.isRequired,
   brand: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  alcoholContent: PropTypes.number.isRequired,
+  price: PropTypes.string.isRequired,
+  alcoholContent: PropTypes.string.isRequired,
   flavor: PropTypes.string.isRequired,
   pints: PropTypes.number,
   id: PropTypes.string,

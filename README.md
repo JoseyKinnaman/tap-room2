@@ -35,7 +35,7 @@ npm run start
 
 ### Known Bugs
 
-None at this time. 
+Project still has local state.
 
 ### Support and Contact Information
 
